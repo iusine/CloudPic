@@ -2,7 +2,7 @@ import axios from 'axios'
 import { message } from 'ant-design-vue'
 
 const instance = axios.create({
-  baseURL: 'http://localhost:8080/',
+  baseURL: 'http://localhost:8080/api',
   timeout: 5000,
   withCredentials: true
 })
@@ -23,7 +23,7 @@ instance.interceptors.response.use(
   (response) => {
     // 2xx 范围内的状态码都会触发该函数。
     // 对响应数据做点什么
-    const { data } = response
+/*    const { data } = response
     if (data.code === 200) {
       if(
         !response.request.responseURL.includes('user/get/login') &&
@@ -32,7 +32,7 @@ instance.interceptors.response.use(
         message.success("请先登录")
         window.location.href = `/user/login?redirect=${window.location.href}`
       }
-    }
+    }*/
     //console.log('进入网页响应的数据:' + response.data.code)
     return response;
   },
